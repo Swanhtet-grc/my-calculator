@@ -4,4 +4,5 @@
   max-width: 500px;
   margin: 50px auto;
   padding: 20px;
+  word-wrap: break-word;
 }
