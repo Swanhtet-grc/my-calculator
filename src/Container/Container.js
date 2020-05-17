@@ -12,7 +12,8 @@ class Container extends Component {
     displayList = "";
     reg1 = /[0-9]/;
     reg2 = /[÷x+-]/;
-    reg3 = /[[÷x+-][0-9]$/g;
+    reg3 = /[.[÷x+-][0-9]$/g;
+    operatorList = ["÷", "x", "+", "-"]
     operatorCounter = 0;
     pointCounter = 1;
     displayChanger = (num) => {
@@ -26,11 +27,12 @@ class Container extends Component {
                 else {
                     this.displayList += num;
                 }
-            } else if (this.displayList.length > 0 && this.reg2.test(num) &&
+            } else if (this.operatorCounter < 1 && this.displayList.length > 0 && this.reg2.test(num) &&
                 !(this.reg2.test(this.displayList[this.displayList.length - 1]))) {
                 this.displayList += num;
                 this.operatorCounter += 1;
-            } else if (num === "." && (this.pointCounter - this.operatorCounter === 1)) {
+            } else if (num === "." && (this.pointCounter - this.operatorCounter === 1 ||
+                this.operatorCounter - this.pointCounter === 1)) {
                 this.displayList += num;
                 this.pointCounter += 1;
             }
@@ -45,9 +47,28 @@ class Container extends Component {
     }
 
     operator = () => {
-        if (this.displayList.length > 2 && this.reg3.test(this.displayList)) {
-            alert("HI")
+
+
+        for (var i = 0; i < this.displayList.length; i++) {
+            if (this.displayList[i] === this.operatorList[0]) {
+                var num = this.displayList.split("÷");
+                var answer = num[0] / num[1]
+            } else if (this.displayList[i] === this.operatorList[1]) {
+                var num = this.displayList.split("x");
+                var answer = num[0] * num[1]
+            } else if (this.displayList[i] === this.operatorList[2]) {
+                var num = this.displayList.split("+");
+                var answer = (num[0] * 1) + (num[1] * 1)
+            } else if (this.displayList[i] === this.operatorList[3]) {
+                var num = this.displayList.split("-");
+                var answer = (num[0] * 1) - (num[1] * 1)
+            }
+
         }
+        if (this.reg3.test(this.displayList)) {
+            this.setState({ result: [{ value: answer }] })
+        }
+
     }
     render() {
         return (
