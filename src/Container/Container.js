@@ -12,7 +12,7 @@ class Container extends Component {
     displayList = "";
     reg1 = /[0-9]/;
     reg2 = /[÷x+-]/;
-    reg3 = /[.[÷x+-][0-9]$/g;
+    reg3 = /[[÷x+-][0-9]/;
     operatorList = ["÷", "x", "+", "-"]
     operatorCounter = 0;
     pointCounter = 1;
