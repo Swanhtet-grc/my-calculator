@@ -1,14 +1,19 @@
 .Card {
   width: 20%;
-  max-height: 50px;
-  max-width: 50px;
-  margin: 1px 1px auto;
+  max-height: 15px;
+  max-width: 30px;
+  margin: 0.2px 0.2px;
   border: 1px solid #eee;
   box-shadow: 1px 2px 3px #ccc;
   padding: 25px;
-  font-size: 30px;
+  font-size: 23px;
   text-align: center;
   display: inline-block;
-  background-color: rgb(236, 109, 18);
+  background-color: rgba(236, 109, 18, 0.911);
   cursor: pointer;
+  transition: 0.1s;
+}
+
+.Card:hover {
+  transform: scale(1.1);
 }

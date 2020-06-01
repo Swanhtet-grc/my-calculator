@@ -5,5 +5,10 @@
 }
 
 html {
-  background-color: cyan;
+  background-color: #fff;
+}
+
+.img1 {
+  width: 30px;
+  height: 18px;
 }
