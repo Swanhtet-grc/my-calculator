@@ -102,8 +102,8 @@ class Container extends Component {
    specialOperator = (type) => {
 	var run = true
 	var num = Number(this.displayList)
-   	for (var i=0; i<this.operatorList.length; i++){
-	    if (this.displayList.includes(this.operatorList[i])){
+   	for (var i=0; i<this.displayList.length; i++){
+	    if (this.operatorList.includes(this.displayList[i])){
 		    run = false
                     break;
 	    }
@@ -114,8 +114,8 @@ class Container extends Component {
 	    } else if (type === "square-root"){
 		num =  Math.sqrt(num) 
 	    }
-	}
 	this.displayList = num.toString()
+	} 
 	this.setState({ result: [{ value: this.displayList}] })
    }
     render() {
