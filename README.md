@@ -1,3 +1,5 @@
 # The Calculator
 
-This is a calculator which is built by using HTML, CSS, JSX, JavaScript and React.js.
+This is a calculator which is built by using React, JavaScript, HTML and CSS.
+
+
