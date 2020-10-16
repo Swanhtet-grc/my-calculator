@@ -1,7 +1,15 @@
 .Title {
-  background: rgb(165, 245, 201);
-  width: 40%;
-  margin: 5px auto;
+  background: #42f560;
+  width: 45%;
+  margin: 40px auto 60px;
   border: 1px solid black;
-  font-size: 12px;
+  font-size: 15px;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .Title{
+	font-size: 11px;
+	width: 80%;  
+}	
 }

@@ -12,3 +12,16 @@
   display: inline-block;
   background-color: rgb(241, 195, 161);
 }
+
+
+@media only screen and (max-width: 500px) {
+.Result {
+  width: 10%;
+  height: 10%;
+  min-height: 10px;
+  min-width: 200px;
+  font-size: 27px;
+}
+
+}
+

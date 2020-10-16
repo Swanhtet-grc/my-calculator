@@ -5,3 +5,17 @@
   padding: 20px;
   word-wrap: break-word;
 }
+
+@media only screen and (max-width: 500px) {
+  .Container {
+  display: inline-flexbox;
+  max-width: 300px;
+  margin: 8px auto;
+  padding: 15px;
+}
+ .img1{
+  width: 20px;
+  height: 15px;
+ }
+}
+
