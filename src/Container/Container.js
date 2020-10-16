@@ -83,7 +83,7 @@ class Container extends Component {
             } else if (this.displayList[i] === this.operatorList[3]) {
                 var num = this.displayList.split("-");
                 var answer = (num[0] * 1) - (num[1] * 1)
-            }
+            } 
 
         }
         if (this.reg3.test(this.displayList)) {
@@ -98,12 +98,32 @@ class Container extends Component {
         }
 
     }
+    
+   specialOperator = (type) => {
+	var run = true
+	var num = Number(this.displayList)
+   	for (var i=0; i<this.operatorList.length; i++){
+	    if (this.displayList.includes(this.operatorList[i])){
+		    run = false
+                    break;
+	    }
+        }
+	if (run === true){
+	    if (type === "square"){
+		num = Math.pow(num, 2)
+	    } else if (type === "square-root"){
+		num =  Math.sqrt(num) 
+	    }
+	}
+	this.displayList = num.toString()
+	this.setState({ result: [{ value: this.displayList}] })
+   }
     render() {
         return (
             <div className="Container">
                 <Result value={this.state.result[0].value} click={(num) => this.operator()} />
-                <Card num="&#8730;x" click={() => alert("This fucntion is not available yet!")} />
-                <Card num="x²" click={() => alert("This fucntion is not available yet!")} />
+                <Card num="&#8730;x" click={() => this.specialOperator("square-root")} />
+                <Card num="x²" click={() => this.specialOperator("square")} />
                 <Card num="C" click={() => this.clear()} />
                 <Card num="÷" click={(num) => this.displayChanger(num)} />
                 <Card num="7" click={(num) => this.displayChanger(num)} />
